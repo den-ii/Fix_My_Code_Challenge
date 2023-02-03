@@ -13,8 +13,13 @@ if (process.argv.length <= 2) {
     process.stderr.write("Example: ./1-print_square.js 8\n");
     process.exit(1)
 }
-
-size = parseInt(process.argv[2])
+reg = /[A-Za-z]+/g
+if (reg.test(process.argv[2])){
+	size = parseInt(process.argv[2], 16)
+}
+else {
+	size = parseInt(process.argv[2])
+}
 
 for (let i = 0 ; i < size ; i ++) {
     process.stdout.write("#".repeat(size));
